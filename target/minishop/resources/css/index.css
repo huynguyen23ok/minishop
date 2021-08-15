@@ -1,0 +1,84 @@
+html, body {
+    font-family: Roboto !important;
+}
+
+#header {
+    height: 662px;
+    background: linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)), url("/resources/image/Banner Đồ Nữ.png") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.none-nav {
+    background: none !important;
+    border: none;
+}
+
+#logo-toto {
+    height: 72px;
+    margin-top: -10%;
+}
+
+.navbar-center {
+    margin-left: 25% !important;
+}
+
+#menu > a {
+    background: none;
+}
+
+.dropdown-menu {
+    background: aquamarine;
+}
+
+.event-header {
+    text-align: center;
+    margin-top: 216px;
+}
+
+.event-header > span {
+    color: white;
+}
+
+.event-header > button {
+    color: white;
+    background-color: #00909C;
+    border: #00909C;
+}
+
+@media (max-width: 575.98px) {
+    .navbar-center {
+        margin-left: 0% !important;
+        margin-top: 5%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .navbar-center {
+        margin-left: 0% !important;
+        margin-top: 5%;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-center {
+        margin-left: 12% !important;
+        margin-top: 5%;
+    }
+
+    .navbar-right {
+        margin-left: 10% !important;
+    }
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+}
+
+#info {
+    text-align: center;
+    margin-top: 48px;
+}
