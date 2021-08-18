@@ -6,17 +6,20 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       https://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
-
+       http://www.springframework.org/schema/context/spring-context-4.3.xsd
+       http://www.springframework.org/schema/mvc
+       https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <context:annotation-config/>
     <context:component-scan base-package="fit.nlu.controller"/>
 
     <mvc:resources mapping="/resources/**" location="/resources/"/>
     <mvc:resources mapping="/common/**" location="/common/"/>
-    <import resource="classpath:Ioc.xml"/>
     <mvc:annotation-driven/>
+
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    <import resource="classpath:Ioc.xml"/>
+
 </beans>

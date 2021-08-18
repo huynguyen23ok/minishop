@@ -2,40 +2,101 @@ package fit.nlu.entity;
 
 import javax.persistence.*;
 
-@Entity(name = "nhanvien")
+@Entity
+@Table(name = "nhanvien")
 public class NhanVien {
+
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int manhanvien;
 
-    @Column(name = "name")
-    private String name;
+    private String hoten;
 
-    private @Column(name = "age")
-    int age;
+    private String diachi;
 
-    public int getId() {
-        return id;
+    private String cmnd;
+
+    @OneToOne
+    @JoinColumn(name = "machucvu")
+    private ChucVu chucVu;
+
+    private String email;
+
+    private boolean gioitinh;
+
+    private String tendangnhap;
+
+    private String matkhau;
+
+    public int getManhanvien() {
+        return manhanvien;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setManhanvien(int manhanvien) {
+        this.manhanvien = manhanvien;
     }
 
-    public String getName() {
-        return name;
+    public String getHoten() {
+        return hoten;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setHoten(String hoten) {
+        this.hoten = hoten;
     }
 
-    public int getAge() {
-        return age;
+    public String getDiachi() {
+        return diachi;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDiachi(String diachi) {
+        this.diachi = diachi;
+    }
+
+    public String getCmnd() {
+        return cmnd;
+    }
+
+    public void setCmnd(String cmnd) {
+        this.cmnd = cmnd;
+    }
+
+    public ChucVu getChucVu() {
+        return chucVu;
+    }
+
+    public void setChucVu(ChucVu chucVu) {
+        this.chucVu = chucVu;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTendangnhap() {
+        return tendangnhap;
+    }
+
+    public void setTendangnhap(String tendangnhap) {
+        this.tendangnhap = tendangnhap;
+    }
+
+    public String getMatkhau() {
+        return matkhau;
+    }
+
+    public void setMatkhau(String matkhau) {
+        this.matkhau = matkhau;
+    }
+
+    public boolean isGioitinh() {
+        return gioitinh;
+    }
+
+    public void setGioitinh(boolean gioitinh) {
+        this.gioitinh = gioitinh;
     }
 }

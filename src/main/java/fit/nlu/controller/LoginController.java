@@ -1,5 +1,7 @@
 package fit.nlu.controller;
 
+import fit.nlu.service.NhanVienService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,18 +12,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/login")
 public class LoginController {
 
+    @Autowired
+    private NhanVienService nhanVienService;
+
     @GetMapping
     public String Default() {
-        return "/decorators/login.jsp";
+        return "login";
     }
 
     @PostMapping
-    public String Login(@RequestParam String user, @RequestParam String pass) {
-        if (user.equals("huy") && pass.equals("1234")) {
-            return "redirect:/";
+    public String XulyDangnhap(@RequestParam String user, @RequestParam String password) {
+        boolean check = nhanVienService.KiemTraDangNhap(user, password);
+        if (check == true) {
+            System.out.println("access");
         } else {
-            return "/decorators/login.jsp";
+            System.out.println("fail");
         }
+        return "login";
     }
 
 }

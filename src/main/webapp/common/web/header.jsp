@@ -21,13 +21,13 @@
                 <li class="active"><a style="background: none" href="#">Liên hệ</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"> Đăng nhập</a></li>
+                <li><a href="/login"> Đăng nhập</a></li>
                 <li><a href="#"> Đăng ký</a></li>
-                    <li><a href="#"><span class="glyphicon  glyphicon-shopping-cart"></span> Giỏ hàng</a></li>
+                <li><a href="#"><span class="glyphicon  glyphicon-shopping-cart"></span> Giỏ hàng</a></li>
             </ul>
         </div>
     </nav>
-    <div class="event-header">
+    <div class="event-header wow bounceIn ">
         <span>Ngày 17/10  - 23/10</span></br>
         <span style="font-size: 50px">Mua 1 tặng 1</span></br>
         <button>Xem ngay</button>
