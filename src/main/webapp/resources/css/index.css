@@ -2,6 +2,7 @@ html, body {
     font-family: Roboto !important;
 }
 
+
 #header {
     height: 750px;
     background: linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)), url("/resources/image/Banner Đồ Nữ.png") no-repeat center fixed;
@@ -30,7 +31,7 @@ html, body {
 }
 
 .dropdown-menu {
-    background: aquamarine;
+    background: #D8D8D8;
 }
 
 .event-header {
@@ -128,3 +129,50 @@ html, body {
     font-size: 32px;
 }
 
+
+/*chi tiet*/
+#hinhchitiet {
+    height: 300px;
+    width: 100%;
+    margin-top: 24px;
+}
+
+.event-header {
+    display: none;
+}
+
+h4 {
+    color: crimson;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+/*menu*/
+ul {
+    list-style-type: none;
+}
+
+.mymenu {
+    padding: 0;
+    margin: 0;
+}
+
+.mymenu li {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px 0px;
+}
+
+.mymenu ul li > a {
+    text-decoration-line: none;
+}
+
+/*.mymenu li > ul {*/
+/*    display: none;*/
+/*}*/
+
+/*.mymenu li:hover > ul {*/
+/*    display: block;*/
+/*}*/

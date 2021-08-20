@@ -1,0 +1,178 @@
+html, body {
+    font-family: Roboto !important;
+}
+
+
+#header {
+    height: 750px;
+    background: linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)), url("/resources/image/Banner Đồ Nữ.png") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.none-nav {
+    background: none !important;
+    border: none;
+}
+
+#logo-toto {
+    height: 72px;
+    margin-top: -10%;
+}
+
+.navbar-center {
+    margin-left: 25% !important;
+}
+
+#menu > a {
+    background: none;
+}
+
+.dropdown-menu {
+    background: #D8D8D8;
+}
+
+.event-header {
+    text-align: center;
+    margin-top: 216px;
+}
+
+.event-header > span {
+    color: white;
+}
+
+.event-header > button {
+    color: white;
+    background-color: #00909C;
+    border: #00909C;
+}
+
+@media (max-width: 575.98px) {
+    .navbar-center {
+        margin-left: 0% !important;
+        margin-top: 5%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .navbar-center {
+        margin-left: 0% !important;
+        margin-top: 5%;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-center {
+        margin-left: 12% !important;
+        margin-top: 5%;
+    }
+
+    .navbar-right {
+        margin-left: 10% !important;
+    }
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+}
+
+#info {
+    text-align: center;
+    margin-top: 48px;
+}
+
+#title-sanpham {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.product {
+    margin-top: 30px;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    margin-left: 4px;
+    margin-right: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding-bottom: 16px;
+}
+
+.product > img {
+    height: 256px;
+    margin-top: 10px;
+}
+
+.price {
+    font-size: 14px;
+    color: red;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+}
+
+#footer {
+    margin-top: 42px;
+    color: white;
+    padding: 38px;
+    background: black;
+}
+
+#footer p {
+    text-align: center;
+}
+
+.title-footer {
+    font-size: 32px;
+}
+
+
+/*chi tiet*/
+#hinhchitiet {
+    height: 300px;
+    width: 100%;
+    margin-top: 24px;
+}
+
+.event-header {
+    display: none;
+}
+
+h4 {
+    color: crimson;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+/*menu*/
+ul {
+    list-style-type: none;
+}
+
+.mymenu {
+    padding: 0;
+    margin: 0;
+}
+
+.mymenu li {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px 0px;
+}
+
+.mymenu ul li > a {
+    text-decoration-line: none;
+}
+
+/*.mymenu li > ul {*/
+/*    display: none;*/
+/*}*/
+
+/*.mymenu li:hover > ul {*/
+/*    display: block;*/
+/*}*/

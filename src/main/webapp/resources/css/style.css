@@ -74,6 +74,7 @@ html, body {
 
 .active {
     color: #DA7C79;
+    font-weight: bold;
 }
 
 .logo {
@@ -111,12 +112,14 @@ html, body {
     width: 100%;
 }
 
+
 .meterial-primary-buttom {
     height: 38px;
     border: 0;
     background-color: #00909C;
     width: 100%;
 }
+
 
 /*end css login*/
 

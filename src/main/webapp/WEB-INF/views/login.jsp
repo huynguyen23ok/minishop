@@ -13,16 +13,31 @@
     </div>
     <div id="container-login-right">
         <div id="header-top-right" class="header-login">
-            <span class="active">Đăng nhập</span>/<span>Đăng ký</span>
+            <span class="active" id="dangnhap1">Đăng nhập</span>/<span id="dangky">Đăng ký</span>
         </div>
-        <div id="container-center-login-right">
-            <form action="/login" method="post">
-                <input class="meterial-textinput" type="text" placeholder="Tài khoản" name="user"/></br>
-                <input class="meterial-textinput" type="password" placeholder="Mật khẩu" name="password"/></br>
-                <input class="meterial-primary-buttom" type="submit" value="Đăng nhập">
-            </form>
-        </div>
-        <div id="container-social-login">
+        <div id="container-center-login-right" style="margin-bottom: 200px">
+            <span id="ketqua"></span>
+            ${kiemtra}
+            <div id="container-login1" class="loginform">
+                <input class="meterial-textinput" type="text" placeholder="Tài khoản" name="user" id="user"/></br>
+                <input class="meterial-textinput" type="password" placeholder="Mật khẩu" name="password"
+                       id="password"/></br>
+                <input id="dangnhap" class="meterial-primary-buttom" type="submit" value="Đăng nhập">
+            </div>
+            <div id="container-singup" class="singupform" style="display: none">
+                <form action="/login" method="post">
+                    <input class="meterial-textinput" type="text" placeholder="Tài khoản" name="userre"
+                           id="userre"/></br>
+                    <input class="meterial-textinput" type="password" placeholder="Mật khẩu" name="passwordRe"
+                           id="passwordRe"/></br>
+                    <input class="meterial-textinput" type="password" placeholder="Nhập lại mật khẩu" name="repassword"
+                           id="repassword"/></br>
+                    <input id="dangnhapRe" class="meterial-primary-buttom" type="submit" value="Đăng Ký">
+                </form>
+            </div>
+            </span>
+            <div id="container-social-login">
+            </div>
         </div>
     </div>
 </div>

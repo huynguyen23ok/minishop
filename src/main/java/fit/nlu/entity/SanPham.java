@@ -23,7 +23,7 @@ public class SanPham {
 
     private String hinhsanpham;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "masanpham")
     private Set<ChiTietSanPham> chiTietSanPhamSet;
 
