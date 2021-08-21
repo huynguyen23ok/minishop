@@ -13,6 +13,7 @@ public class Logout {
     @GetMapping
     public String logout(HttpSession session) {
         session.removeAttribute("user");
+        session.removeAttribute("giohang");
         return "redirect:/";
     }
 }

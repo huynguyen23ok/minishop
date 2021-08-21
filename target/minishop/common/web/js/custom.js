@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    /*Thêm sản phẩm vào giỏ hàng*/
     $(".btnGiohang").click(function () {
         var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
         var tenmau = $(this).closest("tr").find(".mau").text();
@@ -6,7 +7,6 @@ $(document).ready(function () {
         var tensize = $(this).closest("tr").find(".size").text();
         var tensp = $("#tensanpham").text();
         var giatien = $('#giatien').attr("data-gia");
-        var soluong = 1;
         var msp = $(this).attr("data-id");
         $.ajax({
             type: "GET",
@@ -20,12 +20,9 @@ $(document).ready(function () {
                 GiaTien: giatien,
                 TenSize: tensize,
                 SoLuong: 1
-            },
-            success: function (data) {
-               alert("Thêm thành công");
-            },
-            error: function (data) {
-               alert("Thêm thất bại");
+            }, success: function (value) {
+                $('#giohang').find("div").addClass('circle-giohang');
+                $('#giohang').find("div").html("<span>" + value + "</span>");
             }
         });
     });

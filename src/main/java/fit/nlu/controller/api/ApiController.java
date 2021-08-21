@@ -16,8 +16,6 @@ import java.util.List;
 @SessionAttributes({"user", "giohang"})
 public class ApiController {
 
-    List<GioHang> list = new ArrayList<>();
-
     @Autowired
     private NhanVienService nhanVienService;
 
@@ -31,34 +29,43 @@ public class ApiController {
 
     @GetMapping("/addSanpham")
     @ResponseBody
-    public void themGioHang(@ModelAttribute GioHang gioHang, HttpSession session) {
-        if (session.getAttribute("giohang") == null) {
-            list.add(gioHang);
-            session.setAttribute("giohang", list);
-            System.out.println(gioHang.getTenSp() + "-" + gioHang.getMaMau() + "-" + gioHang.getTenSize() + "-" + gioHang.getSoLuong());
+    public String themGioHang(@ModelAttribute GioHang gioHang, HttpSession session) {
+        if (null == session.getAttribute("giohang")) {
+            List<GioHang> gioHangList = new ArrayList<>();
+            gioHangList.add(gioHang);
+            session.setAttribute("giohang", gioHangList);
+            return gioHangList.size() + "";
         } else {
+            List<GioHang> list = (List<GioHang>) session.getAttribute("giohang");
             int vitri = KiemtraSanpham(gioHang.getMaSP(), gioHang.getMaSize(), gioHang.getMaMau(), session);
             if (vitri == -1) {
-                list = (List<GioHang>) session.getAttribute("giohang");
                 list.add(gioHang);
-                System.out.println(gioHang.getTenSp() + "-" + gioHang.getMaMau() + "-" + gioHang.getTenSize() + "-" + gioHang.getSoLuong());
             } else {
                 list = (List<GioHang>) session.getAttribute("giohang");
-                int num = list.get(vitri).getSoLuong() + 1;
-                list.get(vitri).setSoLuong(num);
-                System.out.println(gioHang.getTenSp() + "-" + gioHang.getMaMau() + "-" + gioHang.getTenSize() + "-" + gioHang.getSoLuong());
+                list.get(vitri).setSoLuong(gioHang.getSoLuong() + 1);
             }
+            return list.size() + "";
         }
     }
 
     private int KiemtraSanpham(int masp, int masize, int mamau, HttpSession session) {
         List<GioHang> list = (List<GioHang>) session.getAttribute("giohang");
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getMaSP() == masp && list.get(i).getMaSize() == mamau && list.get(i).getMaMau() == mamau) {
-                return 1;
+            if (list.get(i).getMaSP() == masp && list.get(i).getMaSize() == masize && list.get(i).getMaMau() == mamau) {
+                return i;
             }
         }
         return -1;
     }
+
+//    @GetMapping("/number")
+//    @ResponseBody
+//    public String LaySoLuong(HttpSession session) {
+//        if (null != session.getAttribute("giohang")) {
+//            List<GioHang> gioHangList = (List<GioHang>) session.getAttribute("giohang");
+//            return gioHangList.size() + "";
+//        }
+//        return null;
+//    }
 
 }
