@@ -1,30 +1,32 @@
 $(document).ready(function () {
     $(".btnGiohang").click(function () {
-
         var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
         var tenmau = $(this).closest("tr").find(".mau").text();
         var masize = $(this).closest("tr").find(".size").attr("data-size");
         var tensize = $(this).closest("tr").find(".size").text();
         var tensp = $("#tensanpham").text();
         var giatien = $('#giatien').attr("data-gia");
-        var soluong = $('.soluong').attr("data-soluong");
-        var msp = $(".id-sp").attr("data-sp");
-
+        var soluong = 1;
+        var msp = $(this).attr("data-id");
         $.ajax({
+            type: "GET",
             url: "/api/addSanpham",
-            type: "get",
             data: {
-                masp: msp,
-                masize: masize,
-                tensp: tensp,
-                mausanpham: tenmau,
-                giatien: giatien,
-                tensize: tensize,
-                soluong: soluong
+                maSP: msp,
+                maSize: masize,
+                maMau: mamau,
+                tenSp: tensp,
+                mauSanPham: tenmau,
+                GiaTien: giatien,
+                TenSize: tensize,
+                SoLuong: 1
             },
-            success() {
-
+            success: function (data) {
+               alert("Thêm thành công");
+            },
+            error: function (data) {
+               alert("Thêm thất bại");
             }
-        })
+        });
     });
-})
+});

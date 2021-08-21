@@ -1,67 +1,76 @@
 package fit.nlu.utils;
 
 public class GioHang {
-    private int masp;
-    private int masize;
-    private String tensp;
-    private String mausanpham;
-    private String giatien;
-    private String tensize;
-    private int soluong;
+    private int maSP;
+    private int maSize;
+    private int maMau;
+    private String tenSp;
+    private String mauSanPham;
+    private String GiaTien;
+    private String TenSize;
+    private int SoLuong;
 
-    public int getMasp() {
-        return masp;
+    public int getMaSP() {
+        return maSP;
     }
 
-    public void setMasp(int masp) {
-        this.masp = masp;
+    public void setMaSP(int maSP) {
+        this.maSP = maSP;
     }
 
-    public int getMasize() {
-        return masize;
+    public int getMaSize() {
+        return maSize;
     }
 
-    public void setMasize(int masize) {
-        this.masize = masize;
+    public void setMaSize(int maSize) {
+        this.maSize = maSize;
     }
 
-    public String getTensp() {
-        return tensp;
+    public String getTenSp() {
+        return tenSp;
     }
 
-    public void setTensp(String tensp) {
-        this.tensp = tensp;
+    public void setTenSp(String tenSp) {
+        this.tenSp = tenSp;
     }
 
-    public String getGiatien() {
-        return giatien;
+    public String getMauSanPham() {
+        return mauSanPham;
     }
 
-    public void setGiatien(String giatien) {
-        this.giatien = giatien;
+    public void setMauSanPham(String mauSanPham) {
+        this.mauSanPham = mauSanPham;
     }
 
-    public String getTensize() {
-        return tensize;
+    public String getGiaTien() {
+        return GiaTien;
     }
 
-    public void setTensize(String tensize) {
-        this.tensize = tensize;
+    public void setGiaTien(String giaTien) {
+        GiaTien = giaTien;
     }
 
-    public int getSoluong() {
-        return soluong;
+    public String getTenSize() {
+        return TenSize;
     }
 
-    public void setSoluong(int soluong) {
-        this.soluong = soluong;
+    public void setTenSize(String tenSize) {
+        TenSize = tenSize;
     }
 
-    public String getMausanpham() {
-        return mausanpham;
+    public int getSoLuong() {
+        return SoLuong;
     }
 
-    public void setMausanpham(String mausanpham) {
-        this.mausanpham = mausanpham;
+    public void setSoLuong(int soLuong) {
+        SoLuong = soLuong;
+    }
+
+    public int getMaMau() {
+        return maMau;
+    }
+
+    public void setMaMau(int maMau) {
+        this.maMau = maMau;
     }
 }

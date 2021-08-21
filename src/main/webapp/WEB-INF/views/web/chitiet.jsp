@@ -42,7 +42,9 @@
                             <td class="size" data-size="${item.sizeSanPham.masize}">${item.sizeSanPham.size}</td>
                             <td class="soluong" data-soluong="${item.soluong}">${item.soluong}</td>
                             <td>
-                                <button class="btn btn-success btnGiohang">Thêm giỏ hàng</button>
+                                <button class="btn btn-success btnGiohang" data-id="${chitietsanpham.masanpham}">Thêm
+                                    giỏ hàng
+                                </button>
                             </td>
                         </tr>
                     </c:forEach>

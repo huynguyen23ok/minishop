@@ -32,11 +32,33 @@ public class ApiController {
     @GetMapping("/addSanpham")
     @ResponseBody
     public void themGioHang(@ModelAttribute GioHang gioHang, HttpSession session) {
-        list.add(gioHang);
-        session.setAttribute("giohang", list);
-        List<GioHang> gioHangList = (List<GioHang>) session.getAttribute("giohang");
-        System.out.println(gioHang.getMasize() + "-" + gioHangList);
+        if (session.getAttribute("giohang") == null) {
+            list.add(gioHang);
+            session.setAttribute("giohang", list);
+            System.out.println(gioHang.getTenSp() + "-" + gioHang.getMaMau() + "-" + gioHang.getTenSize() + "-" + gioHang.getSoLuong());
+        } else {
+            int vitri = KiemtraSanpham(gioHang.getMaSP(), gioHang.getMaSize(), gioHang.getMaMau(), session);
+            if (vitri == -1) {
+                list = (List<GioHang>) session.getAttribute("giohang");
+                list.add(gioHang);
+                System.out.println(gioHang.getTenSp() + "-" + gioHang.getMaMau() + "-" + gioHang.getTenSize() + "-" + gioHang.getSoLuong());
+            } else {
+                list = (List<GioHang>) session.getAttribute("giohang");
+                int num = list.get(vitri).getSoLuong() + 1;
+                list.get(vitri).setSoLuong(num);
+                System.out.println(gioHang.getTenSp() + "-" + gioHang.getMaMau() + "-" + gioHang.getTenSize() + "-" + gioHang.getSoLuong());
+            }
+        }
     }
 
+    private int KiemtraSanpham(int masp, int masize, int mamau, HttpSession session) {
+        List<GioHang> list = (List<GioHang>) session.getAttribute("giohang");
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getMaSP() == masp && list.get(i).getMaSize() == mamau && list.get(i).getMaMau() == mamau) {
+                return 1;
+            }
+        }
+        return -1;
+    }
 
 }
