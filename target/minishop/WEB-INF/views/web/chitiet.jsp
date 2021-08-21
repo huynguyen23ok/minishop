@@ -23,8 +23,10 @@
                 <img src="<c:url value="/resources/sanpham/${chitietsanpham.hinhsanpham}"/>" id="hinhchitiet"/>
             </div>
             <div class="col-ms-8 col-md-8">
-                <h3>${chitietsanpham.tensanpham}</h3>
-                <h3 style="color: red">${chitietsanpham.giatien} VNĐ</h3>
+                <span data-tensp="${chitietsanpham.masanpham}" class="id-sp" style="display: none"></span>
+                <h3 id="tensanpham">${chitietsanpham.tensanpham}</h3>
+                <h3 style="color: red" id="giatien" data-gia="${chitietsanpham.giatien}">${chitietsanpham.giatien}
+                    VNĐ</h3>
                 <table class="table" style="width: 100%">
                     <thead>
                     <tr>
@@ -36,11 +38,11 @@
                     <tbody>
                     <c:forEach var="item" items="${chitietsanpham.chiTietSanPhamSet}">
                         <tr>
-                            <td>${item.mauSanPham.tenmau}</td>
-                            <td>${item.sizeSanPham.size}</td>
-                            <td>${item.soluong}</td>
+                            <td class="mau" data-mamau="${item.mauSanPham.mamau}">${item.mauSanPham.tenmau}</td>
+                            <td class="size" data-size="${item.sizeSanPham.masize}">${item.sizeSanPham.size}</td>
+                            <td class="soluong" data-soluong="${item.soluong}">${item.soluong}</td>
                             <td>
-                                <button class="btn btn-success">Thêm giỏ hàng</button>
+                                <button class="btn btn-success btnGiohang">Thêm giỏ hàng</button>
                             </td>
                         </tr>
                     </c:forEach>
