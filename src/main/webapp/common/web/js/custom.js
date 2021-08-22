@@ -8,6 +8,7 @@ $(document).ready(function () {
         var tensp = $("#tensanpham").text();
         var giatien = $('#giatien').attr("data-gia");
         var msp = $(this).attr("data-id");
+        alert(anh);
         $.ajax({
             type: "GET",
             url: "/api/addSanpham",

@@ -1,19 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    .circle-giohang {
-        text-align: center;
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        font-size: 11px;
-        border-radius: 40px;
-        background: red;
-        line-height: 22px;
-        margin-top: -26px;
-        margin-left: 10px;
-        color: white;
-    }
-</style>
 <nav class="navbar navbar-inverse none-nav">
     <div class="container-fluid ">
         <div class="navbar-header ">
@@ -35,13 +20,13 @@
             <li class="active"><a style="background: none" href="#">Liên hệ</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li id="giohang"><a href="#"><span class="glyphicon  glyphicon-shopping-cart">
-            <c:if test="${soluong >0}">
+            <li id="giohang"><a href="/giohang"><span class="glyphicon  glyphicon-shopping-cart">
+            <c:if test="${chitietsanphame.size() >0}">
                 <div class="circle-giohang">
-                        ${soluong}
+                        ${chitietsanphame.size()}
                 </div>
             </c:if>
-                <c:if test="${soluong <=0 || soluong== null}">
+                <c:if test="${chitietsanphame.size() <=0 || chitietsanphame.size()== null}">
                 <div class="circle-giohang">
                        0
                 </div>

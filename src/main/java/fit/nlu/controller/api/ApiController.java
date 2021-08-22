@@ -3,7 +3,6 @@ package fit.nlu.controller.api;
 import fit.nlu.service.NhanVienService;
 import fit.nlu.utils.GioHang;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api")
 @SessionAttributes({"user", "giohang"})
 public class ApiController {
