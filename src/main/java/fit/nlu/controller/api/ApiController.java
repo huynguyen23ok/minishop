@@ -28,11 +28,12 @@ public class ApiController {
 
     @GetMapping("/addSanpham")
     @ResponseBody
-    public String themGioHang(@ModelAttribute GioHang gioHang, HttpSession session) {
+    public String themGioHang(@ModelAttribute GioHang gioHang, HttpSession session, ModelMap modelMap) {
         if (null == session.getAttribute("giohang")) {
             List<GioHang> gioHangList = new ArrayList<>();
             gioHangList.add(gioHang);
             session.setAttribute("giohang", gioHangList);
+            modelMap.addAttribute("soluong", gioHangList.size());
             return gioHangList.size() + "";
         } else {
             List<GioHang> list = (List<GioHang>) session.getAttribute("giohang");
@@ -43,6 +44,7 @@ public class ApiController {
                 list = (List<GioHang>) session.getAttribute("giohang");
                 list.get(vitri).setSoLuong(gioHang.getSoLuong() + 1);
             }
+            modelMap.addAttribute("soluong", list.size());
             return list.size() + "";
         }
     }
@@ -66,5 +68,13 @@ public class ApiController {
 //        }
 //        return null;
 //    }
+
+    @GetMapping("/updateGioHang")
+    @ResponseBody
+    public void updateGioHang(HttpSession session, int soluong) {
+        if (null != session.getAttribute("giohang")) {
+
+        }
+    }
 
 }

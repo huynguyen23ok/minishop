@@ -8,7 +8,6 @@ $(document).ready(function () {
         var tensp = $("#tensanpham").text();
         var giatien = $('#giatien').attr("data-gia");
         var msp = $(this).attr("data-id");
-        alert(anh);
         $.ajax({
             type: "GET",
             url: "/api/addSanpham",
@@ -27,4 +26,38 @@ $(document).ready(function () {
             }
         });
     });
+    /*end*/
+
+    ganTongtien();
+
+    /*cap nhat gia tien*/
+    $('.soluong-giohang').change(function () {
+        var soluong = $(this).val();
+        var giatien = $(this).closest("tr").find(".giatien").attr("data-value");
+        var tongtien = soluong * parseInt(giatien);
+        var format = formatt(tongtien);
+        $(this).closest("tr").find(".giatien").html(format);
+        ganTongtien(true);
+    });
+
+    function ganTongtien() {
+        var tongtiensanpham = 0;
+        $('.giatien').each(function (isClick) {
+            var giatien = $(this).text();
+            var format = formatt(parseFloat(giatien));
+            tongtiensanpham = tongtiensanpham + parseFloat(format);
+            if (!isClick) {
+                $(this).html(format);
+            }
+            var formattt = formatt(tongtiensanpham);
+            $('#tongtien').html(formattt + "");
+        })
+    }
+
+    function formatt(val) {
+        fm = val.toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").toString() + "  VNĐ";
+        return fm;
+    }
+
+    /*end */
 });

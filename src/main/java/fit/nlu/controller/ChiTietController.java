@@ -4,6 +4,7 @@ import fit.nlu.entity.DanhMucSanPham;
 import fit.nlu.entity.SanPham;
 import fit.nlu.service.DanhMucService;
 import fit.nlu.service.SanPhamService;
+import fit.nlu.utils.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,7 +18,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/chitiet")
-@SessionAttributes({"user", "giohang"})
 public class ChiTietController {
 
     @Autowired
@@ -26,14 +26,14 @@ public class ChiTietController {
     @Autowired
     private DanhMucService danhMucService;
 
+    @Autowired
+    private Session session;
 
     @GetMapping("/{id}")
-    public String Defaul(ModelMap modelMap, @PathVariable int id, HttpSession session) {
+    public String Defaul(ModelMap modelMap, @PathVariable int id, HttpSession httpSession) {
+        session.getSeassion(httpSession, modelMap);
         SanPham sanPham = service.LayDanhSachChiTietSanPhamTheoMa(id);
         List<DanhMucSanPham> list = danhMucService.layDanhMuc();
-        if (session.getAttribute("user") != null) {
-            modelMap.addAttribute("taikhoan", session.getAttribute("user"));
-        }
         modelMap.addAttribute("chitietsanpham", sanPham);
         modelMap.addAttribute("listDanhmuc", list);
         return "web/chitiet";

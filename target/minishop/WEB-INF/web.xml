@@ -6,6 +6,7 @@
          version="3.0">
 
     <display-name>minishop</display-name>
+
     <!-- sitemesh filter -->
     <filter>
         <filter-name>sitemesh</filter-name>

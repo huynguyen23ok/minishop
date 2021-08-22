@@ -21,15 +21,13 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li id="giohang"><a href="/giohang"><span class="glyphicon  glyphicon-shopping-cart">
-            <c:if test="${chitietsanphame.size() >0}">
+            <c:if test="${soluong > 0}">
                 <div class="circle-giohang">
-                        ${chitietsanphame.size()}
+                        ${soluong}
                 </div>
             </c:if>
-                <c:if test="${chitietsanphame.size() <=0 || chitietsanphame.size()== null}">
-                <div class="circle-giohang">
-                       0
-                </div>
+                <c:if test="${soluong <=0 || soluong== null}">
+                    <div class="circle-giohang"> 0</div>
                 </c:if>
             </span></a></li>
             <c:if test="${taikhoan != null}">
