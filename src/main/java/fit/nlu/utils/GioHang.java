@@ -1,11 +1,13 @@
 package fit.nlu.utils;
 
 public class GioHang {
+    private int machitiet;
     private int maSP;
     private int maSize;
     private int maMau;
     private String tenSp;
     private String mauSanPham;
+    private String anhSanpham;
     private String GiaTien;
     private String TenSize;
     private int SoLuong;
@@ -74,4 +76,19 @@ public class GioHang {
         this.maMau = maMau;
     }
 
+    public String getAnhSanpham() {
+        return anhSanpham;
+    }
+
+    public void setAnhSanpham(String anhSanpham) {
+        this.anhSanpham = anhSanpham;
+    }
+
+    public int getMachitiet() {
+        return machitiet;
+    }
+
+    public void setMachitiet(int machitiet) {
+        this.machitiet = machitiet;
+    }
 }

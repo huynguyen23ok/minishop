@@ -13,7 +13,7 @@ public class ChiTietHoaDon {
 
     private int soluong;
 
-    private int giatien;
+    private String giatien;
 
     public ChiTietHoaDonId getChiTietHoaDonId() {
         return chiTietHoaDonId;
@@ -31,11 +31,12 @@ public class ChiTietHoaDon {
         this.soluong = soluong;
     }
 
-    public int getGiatien() {
+    public String getGiatien() {
         return giatien;
     }
 
-    public void setGiatien(int giatien) {
+    public void setGiatien(String giatien) {
         this.giatien = giatien;
     }
 }
+

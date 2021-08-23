@@ -4,19 +4,23 @@ $(document).ready(function () {
         var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
         var tenmau = $(this).closest("tr").find(".mau").text();
         var masize = $(this).closest("tr").find(".size").attr("data-size");
+        var chitiet = $(this).closest("tr").find(".chitiet").attr("data-chitiet");
         var tensize = $(this).closest("tr").find(".size").text();
         var tensp = $("#tensanpham").text();
+        var anh = $(this).closest("tr").find(".anh").attr("data-anh");
         var giatien = $('#giatien').attr("data-gia");
         var msp = $(this).attr("data-id");
         $.ajax({
             type: "GET",
             url: "/api/addSanpham",
             data: {
+                machitiet: chitiet,
                 maSP: msp,
                 maSize: masize,
                 maMau: mamau,
                 tenSp: tensp,
                 mauSanPham: tenmau,
+                anhSanpham: anh,
                 GiaTien: giatien,
                 TenSize: tensize,
                 SoLuong: 1
@@ -31,22 +35,23 @@ $(document).ready(function () {
     ganTongtien();
 
     function formatt(val) {
-        fm = val.toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").toString();
+        fm = val.toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").toString() + " VNĐ";
         return fm;
     }
 
     function ganTongtien() {
         var tongtiensanpham = 0;
-        $(".money").each(function (isClick) {
+        $(".money").each(function (e) {
             var giatien = $(this).text();
             var soluong = $(this).closest("tr").find(".soluong-giohang").val();
             var tongtien = parseInt(giatien) * soluong;
             var format = formatt(parseFloat(tongtien));
             tongtiensanpham = tongtiensanpham + tongtien;
-            if (!isClick) {
+            if (!e) {
                 $(this).html(format);
             }
             var formattt = formatt(tongtiensanpham);
+            $(this).html(formatt(tongtien) + "");
             $('#tongtien').html(formattt + "");
         });
     }

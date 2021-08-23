@@ -38,6 +38,8 @@
                     <tbody>
                     <c:forEach var="item" items="${chitietsanpham.chiTietSanPhamSet}">
                         <tr>
+                            <td class="chitiet" data-chitiet="${item.machitietsanpham}" style="display: none"></td>
+                            <td class="anh" data-anh="${item.sanPham.hinhsanpham}" style="display: none"></td>
                             <td class="mau" data-mamau="${item.mauSanPham.mamau}">${item.mauSanPham.tenmau}</td>
                             <td class="size" data-size="${item.sizeSanPham.masize}">${item.sizeSanPham.size}</td>
                             <td class="soluong" data-soluong="${item.soluong}">${item.soluong}</td>
