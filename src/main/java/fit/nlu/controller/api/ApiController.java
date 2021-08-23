@@ -59,22 +59,24 @@ public class ApiController {
         return -1;
     }
 
-//    @GetMapping("/number")
-//    @ResponseBody
-//    public String LaySoLuong(HttpSession session) {
-//        if (null != session.getAttribute("giohang")) {
-//            List<GioHang> gioHangList = (List<GioHang>) session.getAttribute("giohang");
-//            return gioHangList.size() + "";
-//        }
-//        return null;
-//    }
 
     @GetMapping("/updateGioHang")
     @ResponseBody
-    public void updateGioHang(HttpSession session, int soluong) {
+    public void updateGioHang(HttpSession session, @RequestParam int soluong, @RequestParam int masp, @RequestParam int masize, @RequestParam int mamau) {
         if (null != session.getAttribute("giohang")) {
-
+            List<GioHang> list = (List<GioHang>) session.getAttribute("giohang");
+            int vitri = KiemtraSanpham(masp, masize, mamau, session);
+            list.get(vitri).setSoLuong(soluong);
         }
     }
 
+    @GetMapping("/delete")
+    @ResponseBody
+    public void remove(HttpSession session, @RequestParam int masp, @RequestParam int masize, @RequestParam int mamau) {
+        if (null != session.getAttribute("giohang")) {
+            List<GioHang> list = (List<GioHang>) session.getAttribute("giohang");
+            int vitri = KiemtraSanpham(masp, masize, mamau, session);
+            list.remove(vitri);
+        }
+    }
 }

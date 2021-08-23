@@ -32,14 +32,15 @@
                 <tbody>
                 <c:forEach var="item" items="${listgiohang}">
                     <tr>
-                        <td>${item.tenSp}</td>
-                        <td>${item.mauSanPham}</td>
-                        <td>${item.tenSize}</td>
-                        <td style="width: 20%"><input class="soluong-giohang" min="1" type="number"
-                                                      value="${item.soLuong}"/></td>
-                        <td class="giatien" data-value="${item.giaTien}">${item.giaTien} VNĐ</td>
+                        <td class="masp" data-masp="${item.maSP}">${item.tenSp}</td>
+                        <td class="mausp" data-mausp="${item.maMau}">${item.mauSanPham}</td>
+                        <td class="size" data-size="${item.maSize}">${item.tenSize}</td>
+                        <td class="soluong"><input class="soluong-giohang" min="1" max="5"
+                                                   type="number"
+                                                   value="${item.soLuong}"/></td>
+                        <td class="money" data-value="${item.giaTien}">${item.giaTien}</td>
                         <td>
-                            <button class="btn btn-danger">Xóa</button>
+                            <button class="btn btn-danger btxoa">Xóa</button>
                         </td>
                     </tr>
                 </c:forEach>

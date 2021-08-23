@@ -30,6 +30,27 @@ $(document).ready(function () {
 
     ganTongtien();
 
+    function formatt(val) {
+        fm = val.toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").toString();
+        return fm;
+    }
+
+    function ganTongtien() {
+        var tongtiensanpham = 0;
+        $(".money").each(function (isClick) {
+            var giatien = $(this).text();
+            var soluong = $(this).closest("tr").find(".soluong-giohang").val();
+            var tongtien = parseInt(giatien) * soluong;
+            var format = formatt(parseFloat(tongtien));
+            tongtiensanpham = tongtiensanpham + tongtien;
+            if (!isClick) {
+                $(this).html(format);
+            }
+            var formattt = formatt(tongtiensanpham);
+            $('#tongtien').html(formattt + "");
+        });
+    }
+
     /*cap nhat gia tien*/
     $('.soluong-giohang').change(function () {
         var soluong = $(this).val();
@@ -38,26 +59,44 @@ $(document).ready(function () {
         var format = formatt(tongtien);
         $(this).closest("tr").find(".giatien").html(format);
         ganTongtien(true);
+
+        var sp = $(this).closest("tr").find(".masp").attr("data-masp");
+        var size = $(this).closest("tr").find(".size").attr("data-size");
+        var mau = $(this).closest("tr").find(".mausp").attr("data-mausp");
+        $.ajax({
+            url: "api/updateGioHang",
+            type: "get",
+            data: {
+                masp: sp,
+                masize: size,
+                mamau: mau,
+                soluong: soluong
+            }, success: function () {
+                window.location = window.location.href;
+            }
+        });
+
+    });
+    /*end */
+
+    /*xoa san pham*/
+    $('.btxoa').click(function () {
+        var me = $(this);
+        var sp = $(this).closest("tr").find(".masp").attr("data-masp");
+        var size = $(this).closest("tr").find(".size").attr("data-size");
+        var mau = $(this).closest("tr").find(".mausp").attr("data-mausp");
+        $.ajax({
+            url: "api/delete",
+            type: "get",
+            data: {
+                masp: sp,
+                masize: size,
+                mamau: mau
+            }, success: function () {
+                me.closest("tr").remove();
+                window.location = window.location.href;
+            }
+        });
     });
 
-    function ganTongtien() {
-        var tongtiensanpham = 0;
-        $('.giatien').each(function (isClick) {
-            var giatien = $(this).text();
-            var format = formatt(parseFloat(giatien));
-            tongtiensanpham = tongtiensanpham + parseFloat(format);
-            if (!isClick) {
-                $(this).html(format);
-            }
-            var formattt = formatt(tongtiensanpham);
-            $('#tongtien').html(formattt + "");
-        })
-    }
-
-    function formatt(val) {
-        fm = val.toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").toString() + "  VNĐ";
-        return fm;
-    }
-
-    /*end */
 });
