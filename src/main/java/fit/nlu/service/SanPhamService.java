@@ -23,4 +23,9 @@ public class SanPhamService implements SanPhamImpl {
     public SanPham LayDanhSachChiTietSanPhamTheoMa(int id) {
         return sanPhamDAO.LayDanhSachChiTietSanPhamTheoMa(id);
     }
+
+    @Override
+    public List<SanPham> LaySanPhamTheoDanhMuc(int id) {
+        return sanPhamDAO.LaySanPhamTheoDanhMuc(id);
+    }
 }

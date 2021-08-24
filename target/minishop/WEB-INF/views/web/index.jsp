@@ -26,7 +26,7 @@
                 <a href="/chitiet/${item.masanpham}">
                     <div class="col-md-3 col-sm-6 wow swing">
                         <div class="product">
-                            <img src="<c:url value="/resources/sanpham/${item.hinhsanpham}"/>"/><br>
+                            <img src="<c:url value="/resources/sanpham/${item.hinhsanpham}.jpg"/>"/><br>
                             <span>${item.tensanpham}</span><br>
                             <span class="price">${item.giatien}</span>
                         </div>

@@ -13,14 +13,14 @@
         <h3>Danh mục</h3>
         <ul class="mymenu">
             <c:forEach var="item" items="${listDanhmuc}">
-                <li><a>${item.tendanhmuc}</a></li>
+                <li><a href="/list/${item.madanhmuc}/${item.tendanhmuc}">${item.tendanhmuc}</a></li>
             </c:forEach>
         </ul>
     </div>
     <div class="col-sm-8 col-md-8">
         <div class="row">
             <div class="col-sm-4 col-md-4">
-                <img src="<c:url value="/resources/sanpham/${chitietsanpham.hinhsanpham}"/>" id="hinhchitiet"/>
+                <img src="<c:url value="/resources/sanpham/${chitietsanpham.hinhsanpham}.jpg"/>" id="hinhchitiet"/>
             </div>
             <div class="col-ms-8 col-md-8">
                 <span data-tensp="${chitietsanpham.masanpham}" class="id-sp" style="display: none"></span>

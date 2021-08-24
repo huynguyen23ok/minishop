@@ -38,7 +38,7 @@
                 <c:forEach var="item" items="${listgiohang}">
                     <tr>
                         <td class="masp" data-masp="${item.maSP}">${item.tenSp}</td>
-                        <td class="text-center"><img src="<c:url value="/resources/sanpham/${item.anhSanpham}"/>"/></td>
+                        <td class="text-center"><img src="<c:url value="/resources/sanpham/${item.anhSanpham}.jpg"/>"/></td>
                         <td class="mausp" data-mausp="${item.maMau}">${item.mauSanPham}</td>
                         <td class="size" data-size="${item.maSize}">${item.tenSize}</td>
                         <td class="soluong"><input class="soluong-giohang" min="1" max="5"

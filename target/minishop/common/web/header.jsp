@@ -8,12 +8,12 @@
         <ul class="nav navbar-nav navbar-center">
             <li class="active"><a href="/" style="background: none">Trang chủ</a></li>
             <li class="active"><a class="dropdown-toggle" data-toggle="dropdown" style="background: none" href="#">Sản
-                phẩm <span
-                        class="caret"></span></a>
+                phẩm <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Page 1-1</a></li>
-                    <li><a href="#">Page 1-2</a></li>
-                    <li><a href="#">Page 1-3</a></li>
+                    <c:forEach var="item" items="${listDanhmuc}">
+                        <li><a href="/list/${item.madanhmuc}/${item.tendanhmuc}">${item.tendanhmuc}</a></li>
+                    </c:forEach>
+
                 </ul>
             </li>
             <li class="active"><a style="background: none" href="#">Dịch vụ</a></li>

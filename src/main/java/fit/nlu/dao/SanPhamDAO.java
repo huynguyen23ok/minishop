@@ -35,4 +35,13 @@ public class SanPhamDAO implements SanPhamImpl {
         SanPham sanPham = (SanPham) session.createQuery(sql).uniqueResult();
         return sanPham;
     }
+
+    @Override
+    @Transactional
+    public List<SanPham> LaySanPhamTheoDanhMuc(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        String sql = "from SanPham where danhMucSanPham.madanhmuc=" + id;
+        List<SanPham> list = session.createQuery(sql).getResultList();
+        return list;
+    }
 }

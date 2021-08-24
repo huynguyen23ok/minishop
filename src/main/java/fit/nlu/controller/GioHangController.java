@@ -43,36 +43,41 @@ public class GioHangController {
 
     @PostMapping
     public String ThemHoaDon(HttpSession httpSession, @RequestParam String tenkhachhang, @RequestParam String sdt, @RequestParam String diachigiaohang, @RequestParam String hinhthucgiaohang, @RequestParam String ghichu) {
-        if (null != httpSession.getAttribute("giohang")) {
-            HoaDon hoaDon = new HoaDon();
-            List<GioHang> gioHangList = (List<GioHang>) httpSession.getAttribute("giohang");
-            hoaDon.setTenkhachhang(tenkhachhang);
-            hoaDon.setSodienthoai(sdt);
-            hoaDon.setDiachigiaohang(diachigiaohang);
-            hoaDon.setHinhthucgiaohang(hinhthucgiaohang);
-            hoaDon.setGhichu(ghichu);
 
-            int id = hoaDonService.ThemHoaDon(hoaDon);
+        if (httpSession.getAttribute("user") == null) {
+            return "redirect:/login";
+        } else {
+            if (null != httpSession.getAttribute("giohang")) {
+                HoaDon hoaDon = new HoaDon();
+                List<GioHang> gioHangList = (List<GioHang>) httpSession.getAttribute("giohang");
+                hoaDon.setTenkhachhang(tenkhachhang);
+                hoaDon.setSodienthoai(sdt);
+                hoaDon.setDiachigiaohang(diachigiaohang);
+                hoaDon.setHinhthucgiaohang(hinhthucgiaohang);
+                hoaDon.setNgaylap("22/8/2021");
+                hoaDon.setTinhtrang(false);
+                hoaDon.setGhichu(ghichu);
 
-            if (id > 0) {
-                for (GioHang gioHang : gioHangList) {
-                    ChiTietHoaDonId chiTietHoaDonId = new ChiTietHoaDonId();
-                    chiTietHoaDonId.setMachitiethoadon(gioHang.getMachitiet());
+                int id = hoaDonService.ThemHoaDon(hoaDon);
 
-                    ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
-                    chiTietHoaDon.setChiTietHoaDonId(chiTietHoaDonId);
-                    chiTietHoaDon.setGiatien(gioHang.getGiaTien());
-                    chiTietHoaDon.setSoluong(gioHang.getSoLuong());
+                if (id > 0) {
+                    for (GioHang gioHang : gioHangList) {
+                        ChiTietHoaDonId chiTietHoaDonId = new ChiTietHoaDonId();
+                        chiTietHoaDonId.setMachitiethoadon(gioHang.getMachitiet());
+                        chiTietHoaDonId.setMahoadon(hoaDon.getMahoadon());
 
-                    chiTietHoaDonService.Themchitiethoadon(chiTietHoaDon);
+                        ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
+                        chiTietHoaDon.setChiTietHoaDonId(chiTietHoaDonId);
+
+                        chiTietHoaDon.setGiatien(gioHang.getGiaTien());
+                        chiTietHoaDon.setSoluong(gioHang.getSoLuong());
+
+                        chiTietHoaDonService.Themchitiethoadon(chiTietHoaDon);
+                        httpSession.removeAttribute("giohang");
+                    }
                 }
-            } else {
-                System.out.println("fail");
             }
-
-
+            return "/web/giohang";
         }
-
-        return "/web/giohang";
     }
 }

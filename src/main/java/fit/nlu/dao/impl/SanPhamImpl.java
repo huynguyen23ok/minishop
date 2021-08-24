@@ -8,4 +8,6 @@ public interface SanPhamImpl {
     List<SanPham> LayDanhSachSanPhamLimit(int spbatdau);
 
     SanPham LayDanhSachChiTietSanPhamTheoMa(int id);
+
+    List<SanPham> LaySanPhamTheoDanhMuc(int id);
 }
